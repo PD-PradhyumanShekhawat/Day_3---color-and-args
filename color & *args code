@@ -16,23 +16,26 @@ UNDERLINE = '\u001b[4m'
 REVERSE = '\u001b[7m'
 
 
-def color_print(text: str, effect: str) -> None:
+def color_print(text: str, *effects: str) -> None:
     """
         Print `text` using the ANSI sequences to change text color
 
     :param text: The text to print.
-    :param effect: The effect we want. One of the constants defined at the start of this module
+    :param effects: The effect we want. Zero or more of the constants defined at the start of this module
     """
+    effects_string = "".join(effects)
     print(f"{effect}{text}{RESET}")
 
 
 colorama_lpa.init()
 
 color_print("This text is in red", RED)
+color_print("This text is in red", RED, BOLD)
 print("hello")
 color_print("Hello, Yellow", YELLOW)
 print("Let's check this one out")
 color_print("This might be green", GREEN)
+color_print("This text is green, underlined and reversed", GREEN, BOLD, REVERSE)
 color_print("How is this happening?", BLUE)
 color_print("Let's check the debugger pane", CYAN)
 
