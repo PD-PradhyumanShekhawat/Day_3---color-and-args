@@ -24,7 +24,7 @@ def color_print(text: str, *effects: str) -> None:
     :param effects: The effect we want. Zero or more of the constants defined at the start of this module
     """
     effects_string = "".join(effects)
-    print(f"{effect}{text}{RESET}")
+    print(f"{effects_string}{text}{RESET}")
 
 
 colorama_lpa.init()
